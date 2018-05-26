@@ -206,7 +206,7 @@ void inp_sys(void)
 //-------------------------------------------------------------------------
 //  Entry point (main)
 //-------------------------------------------------------------------------
-int main(void)
+void main(void)
 {
 	//Initialize
     g_pTaskStart = g_pTaskEnd = -1;
@@ -231,8 +231,6 @@ int main(void)
             tf();   //running
         }
 	}
-
-	return 0;
 }
 
 void Pic18f25k80_init(void)

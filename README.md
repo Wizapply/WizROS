@@ -1,20 +1,17 @@
 WizROS : Wizapply Rapid Order System
 ==================
-WizROSとは、Microchip PIC18F25K80専用のM2Mフレームワークです。イベントドリブン方式で開発し易く最新のMPLAB XとXC8を用いて開発可能です。
-既に数十もの製品に組み込まれており、２年以上の連続稼働実績があります。
+WizROS is M2M framework optimized to Microchip PIC18F25K80. It can develop using the latest MPLAB X and XC8 that it is easy to develop by an event-driven system.  It is already included also in tens of products, and there is a continuous duty achievement for two years or more. 
 
-また、プログラムに不具合がございまいたらご報告いただければ幸いです。また、Contributorsも募集しております。
+If the program has bugs, please inform us. 
 
-* WizROS製品ページ ： http://wizros.com
+WizROS product page : http://wizros.com 
 
-## インストール方法
+## How to Install
 
-## お問い合わせ先
-これらGitHubにアップロードされている全てのファイルについてご質問・ご報告は、下記ご連絡先までご確認ください。
+## Counts Us
+Please confirm any questions and report to the following contact about all the files uploaded to these GitHub(s). 
 
 ![Wizapply logo](resources/logo.png)  
-株式会社しのびや.com Wizapply事業部  
-大阪府大阪市港区市岡元町３－７－１０　KSビル５F  
-E-Mail : info@wizapply.com  
-TEL : 06-4400-6308  
-Web : <http://wizapply.com>  
+Wizapply Co., Ltd.
+KS Bld.5F, 3-7-10, Ichiokamotomachi, Minato-ku Osaka-shi, Osaka, 552-0002, Japan
+E-MAIL : info@wizapply.com

@@ -9,6 +9,11 @@ WizROS product page : http://wizros.com
 
 ## How to Install
 
+1. Download MPLABX from here(https://www.microchip.com/mplab/mplab-x-ide)
+2. Install XC8
+3. Please make this clone
+4. Open the Project
+
 ## Counts Us
 Please confirm any questions and report to the following contact about all the files uploaded to these GitHub(s). 
 

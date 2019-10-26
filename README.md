@@ -1,6 +1,6 @@
 WizROS : Wizapply Rapid Order System
 ==================
-WizROS is M2M framework optimized to Microchip PIC18F25K80.  
+WizROS is M2M framework optimized to Microchip PIC18F25K80 and PIC1825K83.  
 It can develop using the latest MPLAB X and XC8 that it is easy to develop by an event-driven system.  It is already included also in tens of products, and there is a continuous duty achievement for two years or more. 
 
 If the program has bugs, please inform us. 

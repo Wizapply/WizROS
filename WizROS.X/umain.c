@@ -23,7 +23,7 @@
 
 /**************************************************************************
  *
- *  WIZROS v1.0 for PIC18F25K80
+ *  WIZROS v3.0 for PIC18F25K80
  *
  *  Language is 'C' code source
  *  Compiler Tools : XC8 v1.37 PRO
@@ -88,6 +88,7 @@ void wzSetup()
     wzDelayMSec(1);
 
     g_packet.isRemote = bFalse;
+    g_packet.isEXID = bFalse;
     
     wzTaskEnqueue(taskloop);
     wzTMR0StartMSec(200);

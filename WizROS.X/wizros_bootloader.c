@@ -33,7 +33,7 @@
  *  File Name : wizros_bootloader.c
  *
 ***************************************************************************/
-
+//#define WIZROS_BOOTLOADER
 #ifdef WIZROS_BOOTLOADER
 //-------------------------------------------------------------------------
 //  Includes
@@ -82,14 +82,14 @@ void end_timmer();
 bool_t AnalyticsHexData(uint8_t* str, uint8_t len, HexPacket* packet);
 bool_t ProgrammingHexData(HexPacket* packet);
 
-void startDonloader();
+void startDownloader();
 
 //-------------------------------------------------------------------------
 //  Global Varriables
 //-------------------------------------------------------------------------
 #define WIZROS_BOOTLOADER_MODE      "WIZROS_BOOTMODE"
 #define WIZROS_BOOTLOADER_VERSION   "1.0"
-#define WIZROS_BOOT_HEXCODE_MAX     (256)
+#define WIZROS_BOOT_HEXCODE_MAX     (255)
 
 #define RETURN_STATUS_ERROR         "ERR"
 #define RETURN_STATUS_WRITEOK       "WOK"
@@ -158,7 +158,7 @@ void taskloop()
         if(data == 0x7F) {  //DEL
             g_keycount++;
             if(g_keycount >= 3) {
-                startDonloader();
+                startDownloader();
                 return;
             }
         } else {
@@ -246,7 +246,7 @@ void end_timmer()
     
     //Program Check
     if(wzPRGReading1word(APP_SIGNATURE_ADDRESS) != APP_SIGNATURE_VALUE) {
-        startDonloader();
+        startDownloader();
         return;
     }
     
@@ -379,7 +379,8 @@ bool_t ProgrammingHexData(HexPacket* packet)
     return finish;
 }
 
-void startDonloader()
+
+void startDownloader(void)
 {
     wzTMR0IntTask(WIZ_TASK_NULL);   //OFF
     wzEUSARTWriteString(WIZROS_BOOTLOADER_MODE);

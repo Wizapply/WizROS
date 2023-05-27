@@ -75,9 +75,9 @@
 //-------------------------------------------------------------------------
 void wzEUSARTInitialize(uint8_t baud_rate_flag);    //, uint8_t config
 
-void wzEUSARTWriteChar(uint8_t ch);
-void wzEUSARTWriteString(const uint8_t *str);
-void wzEUSARTWriteLine(const uint8_t *str);
+void wzEUSARTWriteChar(char ch);
+void wzEUSARTWriteString(const char *str);
+void wzEUSARTWriteLine(const char *str);
 void wzEUSARTWriteInt16(int16_t val, int8_t field_length);
 void wzEUSARTWriteUInt16(uint16_t val, int8_t field_length);
 void wzEUSARTWriteInt32(int32_t val, int8_t field_length);

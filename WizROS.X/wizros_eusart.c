@@ -154,7 +154,7 @@ void wzEUSARTInitialize(uint8_t baud_rate_flag) //, uint8_t config
     g_intEUSARTRxTask = WIZ_TASK_NULL;
 }
 
-void wzEUSARTWriteChar(uint8_t ch)
+void wzEUSARTWriteChar(char ch)
 {
     //First
     if(PIE1bits.TX1IE == 0) {
@@ -185,7 +185,7 @@ void putch(char data)
     wzEUSARTWriteChar(data);
 }
 
-void wzEUSARTWriteString(const uint8_t *str)
+void wzEUSARTWriteString(const char *str)
 {
     while(*str != '\0')
     {
@@ -194,7 +194,7 @@ void wzEUSARTWriteString(const uint8_t *str)
     }
 }
 
-void wzEUSARTWriteLine(const uint8_t *str)
+void wzEUSARTWriteLine(const char *str)
 {
     wzEUSARTWriteString(str);
     if(g_wzUseCR) wzEUSARTWriteChar('\r');//CR

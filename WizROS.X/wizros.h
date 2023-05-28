@@ -24,7 +24,7 @@
 
 /**************************************************************************
  *
- *  WIZROS v2.0 for PIC18F25K80
+ *  WIZROS for PIC18F25K80
  *
  *  Language is 'C' code source
  *  Compiler Tools : XC8 v1.37 PRO
@@ -61,6 +61,7 @@ typedef enum _bool_t
 // 8bit
 typedef unsigned char           uint8_t;
 typedef signed char             int8_t;
+typedef signed char             char8_t;
 
 // 16bit
 typedef unsigned short          uint16_t;

@@ -24,7 +24,7 @@
 
 /**************************************************************************
  *
- *  WIZROS v2.0 for PIC18F25K80
+ *  WIZROS for PIC18F25K80
  *
  *  Language is 'C' code source
  *  Compiler Tools : XC8 v1.37 PRO
@@ -54,10 +54,10 @@
 //-------------------------------------------------------------------------
 //  Functions
 //-------------------------------------------------------------------------
-uint16_t wzPRGReading1word(uint24_t flashmem_address);
+uint16_t wzPRGReading1word(uint32_t flashmem_address);
 
-bool_t wzPRGReading32word(uint24_t flashmem_address, uint16_t* data_buffer32word);
-bool_t wzPRGErasing32word(uint24_t flashmem_address);
-bool_t wzPRGWriting32word(uint24_t flashmem_address, uint16_t* data_buffer32word);
+bool_t wzPRGReading32word(uint32_t flashmem_address, uint16_t* data_buffer32word);
+bool_t wzPRGErasing32word(uint32_t flashmem_address);
+bool_t wzPRGWriting32word(uint32_t flashmem_address, uint16_t* data_buffer32word);
 
 #endif /*_WIZROS_PROGRAMMER_H_*/

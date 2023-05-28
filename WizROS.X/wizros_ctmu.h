@@ -24,7 +24,7 @@
 
 /**************************************************************************
  *
- *  WIZROS v2.0 for PIC18F25K80
+ *  WIZROS for PIC18F25K80
  *
  *  Language is 'C' code source
  *  Compiler Tools : XC8 v1.37 PRO

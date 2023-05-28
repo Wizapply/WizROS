@@ -24,7 +24,7 @@
 
 /**************************************************************************
  *
- *  WIZROS v2.0 for PIC18F25K80
+ *  WIZROS for PIC18F25K80
  *
  *  Language is 'C' code source
  *  Compiler Tools : XC8 v1.37 PRO
@@ -50,28 +50,28 @@
 //-------------------------------------------------------------------------
 //  Functions
 //-------------------------------------------------------------------------
-uint8_t wzStringToUint8(const uint8_t* str, int8_t len);
-uint16_t wzStringLEToUint16(const uint8_t* str, int8_t len);    //little
-uint16_t wzStringBEToUint16(const uint8_t* str, int8_t len);    //big
-void wzUint8ToString(uint8_t num, uint8_t* ref_str3);
-void wzUint16ToStringLE(uint16_t num, uint8_t* ref_str3);
-void wzUint16ToStringBE(uint16_t num, uint8_t* ref_str3);
+uint8_t wzStringToUint8(const char* str, int8_t len);
+uint16_t wzStringLEToUint16(const char* str, int8_t len);    //little
+uint16_t wzStringBEToUint16(const char* str, int8_t len);    //big
+void wzUint8ToString(uint8_t num, char* ref_str3);
+void wzUint16ToStringLE(uint16_t num, char* ref_str3);
+void wzUint16ToStringBE(uint16_t num, char* ref_str3);
 
-int8_t wzStringToInt8(const uint8_t* str, int8_t len);
-int16_t wzStringLEToInt16(const uint8_t* str, int8_t len);    //little
-int16_t wzStringBEToInt16(const uint8_t* str, int8_t len);    //big
-void wzInt8ToString(int8_t numi, uint8_t* ref_str3);
-void wzInt16ToStringLE(int16_t numi, uint8_t* ref_str5);
-void wzInt16ToStringBE(int16_t numi, uint8_t* ref_str5);
+int8_t wzStringToInt8(const char* str, int8_t len);
+int16_t wzStringLEToInt16(const char* str, int8_t len);    //little
+int16_t wzStringBEToInt16(const char* str, int8_t len);    //big
+void wzInt8ToString(int8_t numi, char* ref_str3);
+void wzInt16ToStringLE(int16_t numi, char* ref_str5);
+void wzInt16ToStringBE(int16_t numi, char* ref_str5);
 
-uint8_t wzCheckDigitByte(uint8_t* str, uint8_t strlen);
-uint8_t wzCheckDigitByteString(uint8_t* str, uint8_t strlen);
+uint8_t wzCheckDigitByte(char* str, uint8_t strlen);
+uint8_t wzCheckDigitByteString(char* str, uint8_t strlen);
 
-void wzClearString(uint8_t* str, int8_t len);
-void wzMemSet(uint8_t* str, uint8_t set, int8_t len);
+void wzClearString(char* str, int8_t len);
+void wzMemSet(char* str, uint8_t set, int8_t len);
 
-uint16_t wzStringLength(uint8_t* str);
+uint16_t wzStringLength(char* str);
 
-uint8_t* wzStringCat(uint8_t* str1, uint8_t* str2);
+char* wzStringCat(char* str1, char* str2);
 
 #endif /*_WIZROS_UTILITY_H_*/

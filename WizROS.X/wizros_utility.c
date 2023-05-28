@@ -24,7 +24,7 @@
 
 /**************************************************************************
  *
- *  WIZROS v2.0 for PIC18F25K80
+ *  WIZROS for PIC18F25K80
  *
  *  Language is 'C' code source
  *  Compiler Tools : XC8 v1.37 PRO
@@ -46,7 +46,7 @@
 //-------------------------------------------------------------------------
 //  Functions
 //-------------------------------------------------------------------------
-uint8_t wzStringToUint8(const uint8_t* str, int8_t len)
+uint8_t wzStringToUint8(const char* str, int8_t len)
 {
     uint8_t res = 0;
     int8_t i, j;
@@ -65,7 +65,7 @@ uint8_t wzStringToUint8(const uint8_t* str, int8_t len)
     return res;
 }
 
-uint16_t wzStringBEToUint16(const uint8_t* str, int8_t len)
+uint16_t wzStringBEToUint16(const char* str, int8_t len)
 {
     uint16_t res = 0;
     
@@ -79,7 +79,7 @@ uint16_t wzStringBEToUint16(const uint8_t* str, int8_t len)
     return res;
 }
 
-uint16_t wzStringLEToUint16(const uint8_t* str, int8_t len)
+uint16_t wzStringLEToUint16(const char* str, int8_t len)
 {
     uint16_t res = 0;
     
@@ -93,12 +93,8 @@ uint16_t wzStringLEToUint16(const uint8_t* str, int8_t len)
     return res;
 }
 
-void wzUint8ToString(uint8_t num, uint8_t* ref_str3)
+void wzUint8ToString(uint8_t num, char* ref_str3)
 {
-    ref_str3[0] = 0;
-    ref_str3[1] = 0;
-    ref_str3[2] = '\0';
-    
     if((num & 0x0F) >= 10)
          ref_str3[1] = (num & 0x0F) - 10 + 'A';
     else
@@ -110,37 +106,31 @@ void wzUint8ToString(uint8_t num, uint8_t* ref_str3)
          ref_str3[0] |= ((num & 0x0F) - 10 + 'A');
     else
          ref_str3[0] |= ((num & 0x0F) + '0');
+    
+    ref_str3[2] = '\0';
 }
 
-void wzUint16ToStringBE(uint16_t num, uint8_t* ref_str5)
+void wzUint16ToStringBE(uint16_t num, char* ref_str5)
 {
-    ref_str5[0] = 0;
-    ref_str5[1] = 0;
-    ref_str5[3] = 0;
-    ref_str5[4] = 0;
-    ref_str5[5] = '\0';
-    
     uint8_t numh = num >> 8;
     uint8_t numl = num & 0x00FF;
     wzUint8ToString((uint8_t)numl,&ref_str5[0]);
     wzUint8ToString((uint8_t)numh,&ref_str5[2]);
+    
+    ref_str5[5] = '\0';
 }
 
-void wzUint16ToStringLE(uint16_t num, uint8_t* ref_str5)
+void wzUint16ToStringLE(uint16_t num, char* ref_str5)
 {
-    ref_str5[0] = 0;
-    ref_str5[1] = 0;
-    ref_str5[3] = 0;
-    ref_str5[4] = 0;
-    ref_str5[5] = '\0';
-    
     uint8_t numh = num >> 8;
     uint8_t numl = num & 0x00FF;
     wzUint8ToString((uint8_t)numh,&ref_str5[0]);
     wzUint8ToString((uint8_t)numl,&ref_str5[2]);
+    
+    ref_str5[5] = '\0';
 }
 
-int8_t wzStringToInt8(const uint8_t* str, int8_t len)
+int8_t wzStringToInt8(const char* str, int8_t len)
 {
     union {
         int8_t i;
@@ -164,7 +154,7 @@ int8_t wzStringToInt8(const uint8_t* str, int8_t len)
     return res.i;
 }
 
-int16_t wzStringBEToInt16(const uint8_t* str, int8_t len)
+int16_t wzStringBEToInt16(const char* str, int8_t len)
 {
     union {
         int16_t i;
@@ -182,7 +172,7 @@ int16_t wzStringBEToInt16(const uint8_t* str, int8_t len)
     return res.i;
 }
 
-int16_t wzStringLEToInt16(const uint8_t* str, int8_t len)
+int16_t wzStringLEToInt16(const char* str, int8_t len)
 {
     union {
         int16_t i;
@@ -200,12 +190,8 @@ int16_t wzStringLEToInt16(const uint8_t* str, int8_t len)
     return res.i;
 }
 
-void wzInt8ToString(int8_t numi, uint8_t* ref_str3)
+void wzInt8ToString(int8_t numi, char* ref_str3)
 {
-    ref_str3[0] = 0;
-    ref_str3[1] = 0;
-    ref_str3[2] = '\0';
-    
     union {
         int8_t i;
         uint8_t u;
@@ -223,16 +209,12 @@ void wzInt8ToString(int8_t numi, uint8_t* ref_str3)
          ref_str3[0] |= ((num.u & 0x0F) - 10 + 'A');
     else
          ref_str3[0] |= ((num.u & 0x0F) + '0');
+    
+    ref_str3[2] = '\0';
 }
 
-void wzInt16ToStringBE(int16_t numi, uint8_t* ref_str5)
+void wzInt16ToStringBE(int16_t numi, char* ref_str5)
 {
-    ref_str5[0] = 0;
-    ref_str5[1] = 0;
-    ref_str5[3] = 0;
-    ref_str5[4] = 0;
-    ref_str5[5] = '\0';
-    
     union {
         int16_t i;
         uint16_t u;
@@ -244,16 +226,12 @@ void wzInt16ToStringBE(int16_t numi, uint8_t* ref_str5)
     uint8_t numl = num.u & 0x00FF;
     wzUint8ToString((uint8_t)numl,&ref_str5[0]);
     wzUint8ToString((uint8_t)numh,&ref_str5[2]);
+    
+    ref_str5[5] = '\0';
 }
 
-void wzInt16ToStringLE(int16_t numi, uint8_t* ref_str5)
+void wzInt16ToStringLE(int16_t numi, char* ref_str5)
 {
-    ref_str5[0] = 0;
-    ref_str5[1] = 0;
-    ref_str5[3] = 0;
-    ref_str5[4] = 0;
-    ref_str5[5] = '\0';
-    
     union {
         int16_t i;
         uint16_t u;
@@ -265,9 +243,11 @@ void wzInt16ToStringLE(int16_t numi, uint8_t* ref_str5)
     uint8_t numl = num.u & 0x00FF;
     wzUint8ToString((uint8_t)numh,&ref_str5[0]);
     wzUint8ToString((uint8_t)numl,&ref_str5[2]);
+    
+    ref_str5[5] = '\0';
 }
 
-uint8_t wzCheckDigitByte(uint8_t* str, uint8_t strlen)
+uint8_t wzCheckDigitByte(char* str, uint8_t strlen)
 {
     uint8_t i;
     int16_t d = 0;
@@ -282,7 +262,7 @@ uint8_t wzCheckDigitByte(uint8_t* str, uint8_t strlen)
     return (uint8_t)d;
 }
 
-uint8_t wzCheckDigitByteString(uint8_t* str, uint8_t strlen)
+uint8_t wzCheckDigitByteString(char* str, uint8_t strlen)
 {
     uint8_t i;
     int16_t d = 0;
@@ -297,7 +277,7 @@ uint8_t wzCheckDigitByteString(uint8_t* str, uint8_t strlen)
     return (uint8_t)d;
 }
 
-void wzClearString(uint8_t* str, int8_t len)
+void wzClearString(char* str, int8_t len)
 {
     int8_t i;
     for(i = 0; i < len; i++) {
@@ -305,7 +285,7 @@ void wzClearString(uint8_t* str, int8_t len)
     }
 }
 
-void wzMemSet(uint8_t* str, uint8_t set, int8_t len)
+void wzMemSet(char* str, uint8_t set, int8_t len)
 {
     int8_t i;
     for(i = 0; i < len; i++) {
@@ -313,7 +293,7 @@ void wzMemSet(uint8_t* str, uint8_t set, int8_t len)
     }
 }
 
-uint16_t wzStringLength(uint8_t* str)
+uint16_t wzStringLength(char* str)
 {
     uint16_t num = 0;
     while(str != '\0') {
@@ -324,9 +304,9 @@ uint16_t wzStringLength(uint8_t* str)
     return num;
 }
 
-uint8_t* wzStringCat(uint8_t* str1, uint8_t* str2)
+char* wzStringCat(char* str1, char* str2)
 {
-    uint8_t *top;
+    char *top;
     top=str1;
  
     while(*str1++ != 0x00);    

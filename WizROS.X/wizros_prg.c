@@ -24,7 +24,7 @@
 
 /**************************************************************************
  *
- *  WIZROS v2.0 for PIC18F25K80
+ *  WIZROS for PIC18F25K80
  *
  *  Language is 'C' code source
  *  Compiler Tools : XC8 v1.37 PRO
@@ -47,7 +47,7 @@ volatile uint16_t g_wzPRGBuff[WIZ_PRG_DATABUFFER16];
 //-------------------------------------------------------------------------
 //  Functions
 //-------------------------------------------------------------------------
-uint16_t wzPRGReading1word(uint24_t flashmem_address)
+uint16_t wzPRGReading1word(uint32_t flashmem_address)
 {
     uint16_t data = 0x00;
     
@@ -61,7 +61,7 @@ uint16_t wzPRGReading1word(uint24_t flashmem_address)
     return data;
 }
 
-bool_t wzPRGReading32word(uint24_t flashmem_address, uint16_t* data_buffer32word)
+bool_t wzPRGReading32word(uint32_t flashmem_address, uint16_t* data_buffer32word)
 {
     uint8_t i;
     uint8_t counter = WIZ_PRG_DATABUFFER16;
@@ -83,7 +83,7 @@ bool_t wzPRGReading32word(uint24_t flashmem_address, uint16_t* data_buffer32word
     return bTrue;
 }
 
-bool_t wzPRGErasing32word(uint24_t flashmem_address)
+bool_t wzPRGErasing32word(uint32_t flashmem_address)
 {
     //The erase blocks are 32 words or 64 bytes.
     //Word erase in the Flash array is not supported.
@@ -113,7 +113,7 @@ bool_t wzPRGErasing32word(uint24_t flashmem_address)
     return !EECON1bits.WRERR;
 }
 
-bool_t wzPRGWriting32word(uint24_t flashmem_address, uint16_t* data_buffer32word)
+bool_t wzPRGWriting32word(uint32_t flashmem_address, uint16_t* data_buffer32word)
 {
     uint8_t i;
     uint8_t counter = WIZ_PRG_DATABUFFER16;

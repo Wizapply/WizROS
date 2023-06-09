@@ -46,8 +46,8 @@
 //  Defines
 //-------------------------------------------------------------------------
 
-#define WIZ_PRG_FIRSTADDRESS     (0xFFFFC0)
-#define WIZ_PRG_FIRSTADDRESS_N   (0x00003F)
+#define WIZ_PRG_FIRSTADDRESS     (0x00FFFFC0)
+#define WIZ_PRG_FIRSTADDRESS_N   (0x0000003F)
 #define WIZ_PRG_DATABUFFER16     (32)
 #define WIZ_PRG_DATABUFFER8      (64)
 

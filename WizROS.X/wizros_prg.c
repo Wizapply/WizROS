@@ -51,7 +51,7 @@ uint16_t wzPRGReading1word(uint32_t flashmem_address)
 {
     uint16_t data = 0x00;
     
-    TBLPTR = flashmem_address;
+    TBLPTR = (__uint24)(flashmem_address & 0x00FFFFFF);
 
     asm("TBLRD*+");     //PIC is Little-endian
     data |= TABLAT;
@@ -66,7 +66,7 @@ bool_t wzPRGReading32word(uint32_t flashmem_address, uint16_t* data_buffer32word
     uint8_t i;
     uint8_t counter = WIZ_PRG_DATABUFFER16;
     
-    TBLPTR = flashmem_address & WIZ_PRG_FIRSTADDRESS;
+    TBLPTR = (__uint24)(flashmem_address & WIZ_PRG_FIRSTADDRESS);
     
     for(i=0; i < counter; i++) {
         g_wzPRGBuff[i] = 0x00;
@@ -89,7 +89,7 @@ bool_t wzPRGErasing32word(uint32_t flashmem_address)
     //Word erase in the Flash array is not supported.
     //TBLPTR<21:6> point to the block being erased. The
     //TBLPTR<5:0> bits are ignored.
-    TBLPTR = flashmem_address & WIZ_PRG_FIRSTADDRESS;
+    TBLPTR = (__uint24)(flashmem_address & WIZ_PRG_FIRSTADDRESS);
     
     EECON1 = 0x00;
     EECON1bits.EEPGD = 1;

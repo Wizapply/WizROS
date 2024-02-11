@@ -299,7 +299,7 @@ void wzECANWrite(WIZ_CAN_PACKET* packet)
 
         //Data Set
         TXB0DLC = packet->dlc;
-        TXB0SIDH = (packet->id.sid >> 3) & 0x07;
+        TXB0SIDH = (packet->id.sid >> 3) & 0xFF;
         TXB0SIDL = (packet->id.sid << 5) & 0xE0;
 
         if(packet->isEXID) {
